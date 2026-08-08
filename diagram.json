@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "author": "Embedded Systems Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -100,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd",
+      "top": 100,
+      "left": 300,
+      "attrs": {
+        "pins": "i2c"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": 300,
+      "left": 300,
+      "attrs": {
+        "color": "red"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 300,
+      "left": 400,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "dht:VCC",
+      "esp:3V3",
+      "red"
+    ],
+    [
+      "dht:GND",
+      "esp:GND.1",
+      "black"
+    ],
+    [
+      "dht:SDA",
+      "esp:4",
+      "green"
+    ],
+    [
+      "lcd:VCC",
+      "esp:5V",
+      "red"
+    ],
+    [
+      "lcd:GND",
+      "esp:GND.1",
+      "black"
+    ],
+    [
+      "lcd:SDA",
+      "esp:21",
+      "green"
+    ],
+    [
+      "lcd:SCL",
+      "esp:22",
+      "green"
+    ],
+    [
+      "led:A",
+      "r1:1",
+      "red"
+    ],
+    [
+      "r1:2",
+      "esp:2",
+      "green"
+    ],
+    [
+      "led:C",
+      "esp:GND.1",
+      "black"
+    ]
+  ]
+}
